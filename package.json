@@ -1,10 +1,12 @@
 {
   "name": "jquery.ellipsis",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "engines": {
     "node": ">= 0.8.0"
   },
+  "main": "dist/jquery.ellipsis.min.js",
   "scripts": {
+    "run": "grunt",
     "test": "grunt travis --verbose"
   },
   "devDependencies": {

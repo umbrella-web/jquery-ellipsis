@@ -7,7 +7,8 @@
             'onlyFullWords': false, // set to true to avoid cutting the text in the middle of a word
             'char' : '...', // ellipsis
             'callback': function() {},
-            'position': 'tail' // middle, tail
+            'position': 'tail', // middle, tail
+            'class': 'ellip'
         };
 
         options = $.extend(defaults, options);
@@ -15,8 +16,13 @@
         this.each(function() {
             // get element text
             var $this = $(this);
-            var text = $this.text();
-            var origText = text;
+            $this.addClass(options.class);
+            var origText = $this.attr('data-orig-text') || $this.text();
+            var text = origText;
+
+              // and right way store orig text
+            $this.attr('data-orig-text', text).text(text);
+
             var origLength = origText.length;
             var origHeight = $this.height();
 
